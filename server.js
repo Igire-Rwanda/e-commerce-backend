@@ -3,12 +3,13 @@ import "dotenv/config";
 import bodyParser from "body-parser";
 
 import mongoose from "mongoose";
-import userRouter from "./src/route/userRoute";
+import  index from "./src/route/index"
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use("/",userRouter);
+app.use("/",index);
+
 
 //DATABASE CONFIGURATION
 const database = process.env.DATABASE;
@@ -22,7 +23,7 @@ mongoose
   });
   
 //server configuration
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`server is running on  port ${port}`);
 });

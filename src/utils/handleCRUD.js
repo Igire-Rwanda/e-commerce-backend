@@ -1,11 +1,11 @@
 const  createOne = (Model)=> async(req, res, next)=>{
     {
     try {
-        const doc = await Model.create()
+        const doc = await Model.create(req.body)
         if (!doc){
             return res.status(404).json({message:"failed to register"})
         }
-        return res.status(200).json({message:"successfully",data: doc});
+        return res.status(201).json({message:"successfully",data: doc});
     } catch(error){
         console.log(error)
     }
@@ -62,7 +62,7 @@ const deleteOneById = (Model)=> async(req, res, next)=>{
     try {
         const doc = await Model.findById(req.params.id)
         if (!doc){
-            return res.status(404).json({message:"failed"})
+            return res.status(405).json({message:"failed"})
         }
         return res.status(200).json({message:"successfully",data: doc});
     } catch(error){

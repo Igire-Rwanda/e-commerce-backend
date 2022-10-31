@@ -1,31 +1,10 @@
-import userInfo from "../Model/userModel";
+import userModel from "../Model/userModel";
+import handleCRUD from  "../utils/handleCRUD";
 
+const createUser = handleCRUD.createOne(userModel);
+const getAllUsers = handleCRUD.getAll(userModel);
+const getOneUser = handleCRUD. getOneById(userModel);
+const updateUser = handleCRUD.updateOneById(userModel);
+const deleteUser = handleCRUD.deleteOneById(userModel);
 
-class UserContoller {
-
-    //function to registerUse //SignUp
-
-    static signupUser = async(req,res)=>{
-       const user = await userInfo.create(req.body)
-       
-       if(!user){
-        return res.status(400).json({
-            status:400,
-            message:"failed to register"
-        }) 
-       }
-       return res.status(200).json({
-        status:200, 
-        message:"Register successfully",
-        data:user
-       })
-
-
-    }
-
-
-
-}
-
-export default UserContoller;
-
+export default {createUser,getAllUsers,getOneUser,updateUser,deleteUser}
