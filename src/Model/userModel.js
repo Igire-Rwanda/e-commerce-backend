@@ -1,6 +1,7 @@
 
 import mongoose from 'mongoose';
 
+
 const userSchema = new mongoose.Schema({
     names: String,
     companyName: String,
@@ -23,8 +24,9 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: ["user", "Admin"],
-        default: "Admin"
+        default: "user"
     },
+   
     isActive: {
         type: Boolean,
         default: true,
@@ -32,5 +34,6 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true }
 );
 
-const userInfo = mongoose.model('Admin', userSchema);
+
+const userInfo = mongoose.model('user', userSchema);
 export default userInfo;

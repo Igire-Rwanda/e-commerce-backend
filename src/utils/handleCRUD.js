@@ -1,4 +1,9 @@
+import userInfo from '../Model/userModel';
+import TokenAuth from '../utils/token';
+
 const  createOne = (Model)=> async(req, res, next)=>{
+    // req.body.userInfo=req.userInfo._id
+
     {
     try {
         const doc = await Model.create(req.body)
