@@ -1,10 +1,12 @@
-import Category from "../Model/categoryModel";
-import handleCRUD from  "../utils/handleCRUD";
+import categoryModel from "../Model/categoryModel"
+import  {create,getAll,getOneById,updateOneById,deleteOneById} from "./globalController";
 
-const createCategory = handleCRUD.createOne(Category);
-const getAllCategory = handleCRUD.getAll(Category);
-const getOneCategory = handleCRUD. getOneById(Category);
-const updateCategory = handleCRUD.updateOneById(Category);
-const deleteCategory = handleCRUD.deleteOneById(Category);
+export const createController = create(categoryModel)
+export const getAllController = getAll(categoryModel)
 
-export default {createCategory,getAllCategory,getOneCategory,updateCategory,deleteCategory}
+export const getOneController = getOneById(categoryModel)
+
+
+export const updateController = updateOneById(categoryModel)
+
+export const deleteController =deleteOneById(categoryModel)

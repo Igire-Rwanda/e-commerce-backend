@@ -1,14 +1,19 @@
-import  Express  from "express";
-import categoryController from "../Controllers/categoryController";
+import { Router } from "express";
+import * as CategoryController from "../controllers/categoryController";
+
+const route = Router();
 
 
-const CategoryRouter =Express.Router();
-
-CategoryRouter.post("/",categoryController.createCategory)
-CategoryRouter.get("/",categoryController.getAllCategory)
-CategoryRouter.get("/:id",categoryController.getOneCategory)
-CategoryRouter.patch("/:id",categoryController.updateCategory)
-CategoryRouter.delete("/:id",categoryController.deleteCategory)
+route
+  .route("/")
+  .post( CategoryController .createController)
+  .get(CategoryController .getAllController);
 
 
-export default CategoryRouter;
+route
+  .route("/:id")
+  .patch(CategoryController .updateController)
+  .get(CategoryController .getOneController)
+  .delete(CategoryController .deleteController);
+
+export default route;

@@ -1,11 +1,16 @@
+
+
+
+import  {create,getAll,getOneById,updateOneById,deleteOneById} from "./globalController";
 import shippingModel from "../Model/shippingModel"
 
-import handleCRUD from  "../utils/handleCRUD";
 
-const createShipping = handleCRUD.createOne(shippingModel);
-const getAllShipping = handleCRUD.getAll(shippingModel);
-const getOneShipping = handleCRUD. getOneById(shippingModel);
-const updateShipping = handleCRUD.updateOneById(shippingModel);
-const deleteShipping = handleCRUD.deleteOneById(shippingModel);
+export const createController = create(shippingModel)
+export const getAllController = getAll(shippingModel)
 
-export default {createShipping,getAllShipping,getOneShipping,updateShipping,deleteShipping}
+export const getOneController = getOneById(shippingModel)
+
+
+export const updateController = updateOneById(shippingModel)
+
+export const deleteController =deleteOneById(shippingModel)

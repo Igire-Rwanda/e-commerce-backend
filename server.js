@@ -4,9 +4,10 @@ import bodyParser from "body-parser";
 
 import mongoose from "mongoose";
 import  index from "./src/route/index"
+import cors from "cors"
 
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/",index);
 

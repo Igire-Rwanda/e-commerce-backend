@@ -1,11 +1,13 @@
+import  {create,getAll,getOneById,updateOneById,deleteOneById} from "./globalController";
 import productModel from "../Model/productModel"
 
-import handleCRUD from  "../utils/handleCRUD";
 
-const createProduct = handleCRUD.createOne(productModel);
-const getAllProduct = handleCRUD.getAll(productModel);
-const getOneProduct = handleCRUD. getOneById(productModel);
-const updateProduct = handleCRUD.updateOneById(productModel);
-const deleteProduct = handleCRUD.deleteOneById(productModel);
+export const createController = create(productModel)
+export const getAllController = getAll(productModel)
 
-export default {createProduct,getAllProduct,getOneProduct,updateProduct,deleteProduct}
+export const getOneController = getOneById(productModel)
+
+
+export const updateController = updateOneById(productModel)
+
+export const deleteController =deleteOneById(productModel)

@@ -1,14 +1,19 @@
-import  Express  from "express";
-import productController from "../Controllers/productController";
+import { Router } from "express";
+import * as ProductController from "../controllers/productController";
+
+const route = Router();
 
 
-const ProductRouter =Express.Router();
-
-ProductRouter.post("/",productController.createProduct)
-ProductRouter.get("/",productController.getAllProduct)
-ProductRouter.get("/:id",productController.getOneProduct)
-ProductRouter.patch("/:id",productController.updateProduct)
-ProductRouter.delete("/:id",productController.deleteProduct)
+route
+  .route("/")
+  .post( ProductController.createController)
+  .get(ProductController.getAllController);
 
 
-export default ProductRouter;
+route
+  .route("/:id")
+  .patch(ProductController.updateController)
+  .get(ProductController.getOneController)
+  .delete(ProductController.deleteController);
+
+export default route;

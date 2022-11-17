@@ -1,14 +1,21 @@
-import  Express  from "express";
-import OrderController from "../Controllers/OrderController";
 
 
-const OrderRouter =Express.Router();
+import { Router } from "express";
+import * as OrderController from "../controllers/OrderController";
 
-OrderRouter.post("/",OrderController.createOrder)
-OrderRouter.get("/",OrderController.getAllOrder)
-OrderRouter.get("/:id",OrderController.getOneOrder)
-OrderRouter.patch("/:id",OrderController.updateOrder)
-OrderRouter.delete("/:id",OrderController.deleteOrder)
+const route = Router();
 
 
-export default OrderRouter;
+route
+  .route("/")
+  .post( OrderController.createController)
+  .get(OrderController.getAllController);
+
+
+route
+  .route("/:id")
+  .patch(OrderController.updateController)
+  .get(OrderController.getOneController)
+  .delete(OrderController.deleteController);
+
+export default route;

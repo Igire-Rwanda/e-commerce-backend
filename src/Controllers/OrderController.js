@@ -1,10 +1,16 @@
-import OrderModel from "../Model/orderModel"
-import handleCRUD from  "../utils/handleCRUD";
 
-const createOrder = handleCRUD.createOne(OrderModel);
-const getAllOrder = handleCRUD.getAll(OrderModel);
-const getOneOrder = handleCRUD. getOneById(OrderModel);
-const updateOrder = handleCRUD.updateOneById(OrderModel);
-const deleteOrder = handleCRUD.deleteOneById(OrderModel);
 
-export default {createOrder,getAllOrder,getOneOrder,updateOrder,deleteOrder}
+
+import  {create,getAll,getOneById,updateOneById,deleteOneById} from "./globalController";
+import orderModel from "../Model/orderModel"
+
+
+export const createController = create(orderModel)
+export const getAllController = getAll(orderModel)
+
+export const getOneController = getOneById(orderModel)
+
+
+export const updateController = updateOneById(orderModel)
+
+export const deleteController =deleteOneById(orderModel)

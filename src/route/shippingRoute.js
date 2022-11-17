@@ -1,14 +1,21 @@
-import  Express  from "express";
-import shippingController from "../Controllers/shippingController";
 
 
-const ShippingRouter =Express.Router();
+import { Router } from "express";
+import * as ShippingController from "../controllers/shippingController";
 
-ShippingRouter.post("/",shippingController.createShipping)
-ShippingRouter.get("/",shippingController.getAllShipping)
-ShippingRouter.get("/:id",shippingController.getOneShipping)
-ShippingRouter.patch("/:id",shippingController.updateShipping)
-ShippingRouter.delete("/:id",shippingController.deleteShipping)
+const route = Router();
 
 
-export default ShippingRouter;
+route
+  .route("/")
+  .post( ShippingController.createController)
+  .get(ShippingController.getAllController);
+
+
+route
+  .route("/:id")
+  .patch(ShippingController.updateController)
+  .get(ShippingController.getOneController)
+  .delete(ShippingController.deleteController);
+
+export default route;

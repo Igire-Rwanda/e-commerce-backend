@@ -1,14 +1,19 @@
-import  Express  from "express";
-import transactionController from "../Controllers/transactionController";
+import { Router } from "express";
+import * as TransactionController from "../controllers/transactionController";
+
+const route = Router();
 
 
-const TransactionRouter =Express.Router();
-
-TransactionRouter.post("/",transactionController.createTransaction)
-TransactionRouter.get("/",transactionController.getAllTransaction)
-TransactionRouter.get("/:id",transactionController.getOneTransaction)
-TransactionRouter.patch("/:id",transactionController.updateTransaction)
-TransactionRouter.delete("/:id",transactionController.deleteTransaction)
+route
+  .route("/")
+  .post( TransactionController .createController)
+  .get(TransactionController .getAllController);
 
 
-export default TransactionRouter;
+route
+  .route("/:id")
+  .patch(TransactionController .updateController)
+  .get(TransactionController .getOneController)
+  .delete(TransactionController .deleteController);
+
+export default route;

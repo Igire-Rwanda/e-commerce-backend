@@ -1,11 +1,13 @@
-import transactionModel from "../Model/transactionModel"
+import  {create,getAll,getOneById,updateOneById,deleteOneById} from "./globalController";
+import transactionModel from "../Model/shippingModel"
 
-import handleCRUD from  "../utils/handleCRUD";
 
-const createTransaction = handleCRUD.createOne(transactionModel);
-const getAllTransaction = handleCRUD.getAll(transactionModel);
-const getOneTransaction = handleCRUD. getOneById(transactionModel);
-const updateTransaction = handleCRUD.updateOneById(transactionModel);
-const deleteTransaction = handleCRUD.deleteOneById(transactionModel);
+export const createController = create(transactionModel)
+export const getAllController = getAll(transactionModel)
 
-export default {createTransaction,getAllTransaction,getOneTransaction,updateTransaction,deleteTransaction}
+export const getOneController = getOneById(transactionModel)
+
+
+export const updateController = updateOneById(transactionModel)
+
+export const deleteController =deleteOneById(transactionModel)
