@@ -6,10 +6,8 @@ const ProductSchema = new mongoose.Schema({
     description:String,
     productName:String,
     productPicture:String,
-    client: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Client"
-    },
+    
+  
     retailer: {
         type:mongoose.Schema.Types.ObjectId,
         ref:"Retailer"
@@ -19,15 +17,8 @@ const ProductSchema = new mongoose.Schema({
         ref:"Category"
     },
     
-    role:{
-        type:String,
-        enum:["Product","Admin","Category"],
-        default:"Product"
-    }, 
-    // createdBy:{
-    //     type:mongoose.Schema.ObjectId,
-    //     ref:"user",
-    // },
+
+ 
     isActive:{
         type:Boolean,
         default:true,
