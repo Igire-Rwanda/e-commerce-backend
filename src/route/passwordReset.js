@@ -1,11 +1,11 @@
-const {User} = require('../Model/serMdle');
+const {User} = require('../Model/userModel');
 const Token = require('../Model/tkenModel');
 const sendMail = require('../utils/sendEmail');
 const Joi = require("joi");
 const crypto = require('crypto');
 const express = require('express') ;
-const { route } = require('./serRoute');
-const schema  = require('../Model/serMdle');
+const { route } = require('./userRoute');
+const schema  = require('../Model/userModel');
 const router = express.Router();
 
 router.post("/",async (req, res)=> {

@@ -1,9 +1,6 @@
-
 import mongoose from 'mongoose';
-
-
+const Joi = require('joi');
 const userSchema = new mongoose.Schema({
-    names: String,
     companyName: String,
     email: {
         type: String,
@@ -34,6 +31,15 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true }
 );
 
-
-const userInfo = mongoose.model('user', userSchema);
-export default userInfo;
+export default mongoose.model("UserModel",userSchema);
+// const User = mongoose.model('user', userSchema);
+// const Validate = (user) =>{
+//     const Schema = Joi.object({
+//         names: Joi.string().required(),
+//         email: Joi.string().required(),
+//         password: Joi.string().required(),
+//     })
+//     return Schema.validate(user)
+// }
+// module.exports.User ={User,Validate}
+// export default User;

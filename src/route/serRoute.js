@@ -1,7 +1,10 @@
 const {User,validate}= require("../Model/serMdle")
 const express = require('express');
+import { checkUser,loginUser } from "../Middlewares/checkUserExist";
+import { verifyUserToken } from "../Middlewares/verifyToken";
 const router = express.Router();
-
+router.post("/login", loginUser);
+router.use(verifyUserToken);
 router.post("/",async (req,res)=>{
     try {
         const {error} = validate(req.body);
