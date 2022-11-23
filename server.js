@@ -1,15 +1,16 @@
 import express from "express";
 import "dotenv/config";
 import bodyParser from "body-parser";
-
 import mongoose from "mongoose";
-import index from "./src/Routes/index"
+import index from "./src/Routes/index";
+import product from "./src/Routes/ProductRoutes";
 import cors from "cors"
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api",index);
+app.use("/",product);
 
 
 //DATABASE CONFIGURATION
