@@ -1,7 +1,7 @@
 import Response from "../utils/Response";
 import status from "http-status";
 //save data in database
-export const create = (Model) => async (req, res, next) => {
+export const create = (Model) => async (req, res) => {
   try {
     const data = await Model.create(req.body);
     if (!data) {

@@ -2,27 +2,24 @@
 import mongoose from 'mongoose';
 
 const ProductSchema = new mongoose.Schema({
-    names:String,
+    
     description:String,
     productName:String,
     productPicture:String,
     
-  
-    retailer: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Retailer"
-    },
+  price:String,
     category: {
         type:mongoose.Schema.Types.ObjectId,
         ref:"Category"
     },
+    // User: {
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:"User"
+    // },
     
 
  
-    isActive:{
-        type:Boolean,
-        default:true,
-    },
+
 },{timestamps:true}
 );
 // ProductSchema.pre(/^find/,function(next){

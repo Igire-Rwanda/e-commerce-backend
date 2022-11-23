@@ -1,7 +1,8 @@
 const {User} = require('../Model/userModel');
 const Token = require('../Model/tkenModel');
 const sendMail = require('../utils/sendEmail');
-const Joi = require("joi");
+// const Joi = require("joi");
+const Joi = require('@hapi/joi');
 const crypto = require('crypto');
 const express = require('express') ;
 const { route } = require('./userRoute');
@@ -11,7 +12,7 @@ const router = express.Router();
 router.post("/",async (req, res)=> {
 try {
    const Schema = Joi.object({email: Joi.string().email().required()});
-   const {error} = schema.validate(req.body);
+   const {error} = schema.Validate(req. body);
    if (error) return res.status(400).send(error.details[0].message);
    const user = await User.findOne({email: req.body.email});
    if(!user) return res.status(400).send("user with given data not exist");

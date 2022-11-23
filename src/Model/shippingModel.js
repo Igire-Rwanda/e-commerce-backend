@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 
 const shippingSchema = new mongoose.Schema({
     names: String,
-    Price: String,
     Location: {
         state: String,
         city: String,

@@ -4,10 +4,7 @@ const CategorySchema = new mongoose.Schema({
    
     names: String,
  
-    isActive:{
-        type:Boolean,
-        default:true,
-    },
+   
 },{timestamps:true}
 );
 

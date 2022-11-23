@@ -10,25 +10,19 @@ const orderSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Product"
     },
-    Category: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Category"
-    },
-    names:String,
+   
+  quantity:String,
     ShippingAddress:{
         state:String,
         city:String,
     },
     TotalAmount:String,
-    role:{
+    status:{
         type:String,
-        enum:["order","Admin"],
-        default:"order"
+        enum:["pending","delivered"],
+        default:"pending"
     },
-    isActive:{
-        type:Boolean,
-        default:true,
-    },
+  
 },{timestamps:true}
 );
 

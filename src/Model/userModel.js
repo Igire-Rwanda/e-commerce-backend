@@ -9,8 +9,9 @@ const userSchema = new mongoose.Schema({
     },
     password: String,
     address: {
-        state: String,
+        province: String,
         city: String,
+        
     },
     gender: {
         type: String,
@@ -31,15 +32,16 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true }
 );
 
-export default mongoose.model("UserModel",userSchema);
-// const User = mongoose.model('user', userSchema);
-// const Validate = (user) =>{
-//     const Schema = Joi.object({
-//         names: Joi.string().required(),
-//         email: Joi.string().required(),
-//         password: Joi.string().required(),
-//     })
-//     return Schema.validate(user)
-// }
-// module.exports.User ={User,Validate}
-// export default User;
+// export default mongoose.model("UserModel",userSchema);
+
+const User = mongoose.model('UserModel', userSchema);
+export const Validate = (user) =>{
+    const Schema = Joi.object({
+        names: Joi.string().required(),
+        email: Joi.string().required(),
+        password: Joi.string().required(),
+    })
+    return Schema.validate(user)
+}
+module.exports.User ={User,Validate}
+export default User;

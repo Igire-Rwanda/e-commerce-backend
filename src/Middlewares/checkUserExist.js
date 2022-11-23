@@ -27,10 +27,10 @@ export const checkUser = async (req, res, next) => {
 
 export const loginUser = async (req, res) => {
   try {
-    let { email, password } = req.body;
-  const user = await UserModel.findOne({ email });
-  if (!user) {
-    return Response.errorMessage(
+         let { email, password } = req.body;
+         const user = await UserModel.findOne({ email });
+        if (!user) {
+        return Response.errorMessage(
       res,
       "user/email is not exist",
       status.NOT_FOUND
