@@ -6,9 +6,9 @@ import UserController from "../controllers/UserController";
 
 
 const router = express.Router();
-router.get("/", (req, res) => {
-    return res.send({ message: "All Users!!!" })
-});
+// router.get("/", (req, res) => {
+//     return res.send({ message: "All Users!!!" })
+// });
 
 router.post("/login", async (req, res) => {
 
@@ -39,5 +39,6 @@ router.post("/login", async (req, res) => {
 
 router.post("/",UserController.createUser);
 router.get("/",UserController.getAllUsers);
+router.patch("/:id",UserController.UpdateUser)
 
 export default router;
