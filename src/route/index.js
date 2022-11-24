@@ -1,5 +1,5 @@
 import {Router} from "express";
-import users from "./userRoute"
+import users from "./UserRoute"
 const router = Router();
 router.use("/api/users",users);
 
