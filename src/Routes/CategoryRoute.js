@@ -8,4 +8,9 @@ const CategoryRoute=express.Router();
 
 CategoryRoute.post("/",CategoryController.createCategory);
 
-export default CategoryRoute;
+CategoryRoute.get("/",CategoryController.getAllCategories);
+CategoryRoute.get("/:id",CategoryController.getOneCategory);
+CategoryRoute.put("/:id",CategoryController.updateAll);
+CategoryRoute.delete("/:id",CategoryController. deleteCategory);
+
+export default CategoryRoute; 
