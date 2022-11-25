@@ -4,13 +4,16 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import index from "./src/Routes/index";
 import product from "./src/Routes/ProductRoutes";
-import cors from "cors"
+import path  from 'path';
+import cors from "cors";
+
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use('/static', express.static(path.join(__dirname, 'assets')))
 app.use("/api",index);
-app.use("/",product);
+app.use("/products",product);
 
 
 //DATABASE CONFIGURATION
