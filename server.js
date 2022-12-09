@@ -5,17 +5,18 @@ import mongoose from "mongoose";
 import  index from "./src/route/index"
 import cors from "cors";
 import product from "./src/Routes/ProductRoutes";
+import path  from 'path';
 import userRoute from "./src/route/UserRoute";
+import DescriptionRoute from "./src/Routes/DescriptionRoute";
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use('/images', express.static(path.join(__dirname, 'src/app/assets')))
 app.use("/api",index);
-app.use("/",product);
-// app.use("/",index);
-
-
+app.use("/products",product);
 app.use("/users", userRoute);
+app.use("/description",DescriptionRoute);
 
 
 

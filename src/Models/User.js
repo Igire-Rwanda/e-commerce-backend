@@ -8,6 +8,10 @@ const UserSchema = mongoose.Schema({
     companyName:String,
     telephoneNumber:String,
     address:String,
+    verified:Boolean
+    
+
+
     // role:{
     //     enum:["Admin","Retailer"],
     //     default:"Retailer"
